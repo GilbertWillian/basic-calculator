@@ -5,8 +5,7 @@ import CalculadoraService from "./Calculadora.service";
 
 function Calculadora() {
   const [
-    calcular,
-    concatenarNumero,
+    calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO
   ] = CalculadoraService();
 
   const [txtNumeros, setTxtNumeros] = useState("0");
@@ -123,7 +122,7 @@ function Calculadora() {
           <Col>
             <Button
               variant="outline-warning"
-              onClick={() => definirOperacao("/")}
+              onClick={() => definirOperacao(DIVISAO)}
             >
               /
             </Button>
@@ -161,7 +160,7 @@ function Calculadora() {
           <Col>
             <Button
               variant="outline-warning"
-              onClick={() => definirOperacao("*")}
+              onClick={() => definirOperacao(MULTIPLICACAO)}
             >
               *
             </Button>
@@ -199,7 +198,7 @@ function Calculadora() {
           <Col>
             <Button
               variant="outline-warning"
-              onClick={() => definirOperacao("-")}
+              onClick={() => definirOperacao(SUBTRACAO)}
             >
               -
             </Button>
@@ -233,7 +232,7 @@ function Calculadora() {
           <Col>
             <Button
               variant="outline-warning"
-              onClick={() => definirOperacao("+")}
+              onClick={() => definirOperacao(SOMA)}
             >
               +
             </Button>
