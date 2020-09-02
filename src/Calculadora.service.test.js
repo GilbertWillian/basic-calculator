@@ -25,6 +25,7 @@ describe('Teste do CalculadoraService', () => {
     expect(divisao).toEqual(0.25);
   });
 
+  // Primeiro Caso de Teste - Multiplicacao
   it('deve garantir que 1 * 4 = 4', () => {
     let multiplicacao = calcular(1, 4, MULTIPLICACAO);
     expect(multiplicacao).toEqual(4);
@@ -34,6 +35,5 @@ describe('Teste do CalculadoraService', () => {
     let operacaoInvalida = calcular(1, 4, '%');
     expect(operacaoInvalida).toEqual(0);
   })
-
 
 });
