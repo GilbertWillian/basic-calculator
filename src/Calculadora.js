@@ -4,9 +4,8 @@ import { Jumbotron, Container, Row, Col, Button, Form } from "react-bootstrap";
 import CalculadoraService from "./Calculadora.service";
 
 function Calculadora() {
-  const [
-    calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO
-  ] = CalculadoraService();
+  const [calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] =
+    CalculadoraService();
 
   const [txtNumeros, setTxtNumeros] = useState("0");
   const [numero1, setNumero1] = useState("0");
@@ -29,20 +28,23 @@ function Calculadora() {
 
   function definirOperacao(op) {
     // Apenas define a operacao caso ela não exista
-    if(operacao === null) {
+    if (operacao === null) {
       setOperacao(op);
       return;
     }
 
     // caso operacao estiver definida e numero 2 selecionado, realiza o cálculo da operação
     if (numero2 !== null) {
-      const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao);
+      const resultado = calcular(
+        parseFloat(numero1),
+        parseFloat(numero2),
+        operacao
+      );
       setOperacao(op);
       setNumero1(resultado.toString());
       setNumero2(null);
       setTxtNumeros(resultado.toString());
     }
-
   }
 
   function acaoCalular() {
@@ -50,13 +52,17 @@ function Calculadora() {
       return;
     }
 
-    const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao);
+    const resultado = calcular(
+      parseFloat(numero1),
+      parseFloat(numero2),
+      operacao
+    );
     setTxtNumeros(resultado);
   }
 
   function limpar() {
-    setTxtNumeros('0');
-    setNumero1('0');
+    setTxtNumeros("0");
+    setNumero1("0");
     setNumero2(null);
     setOperacao(null);
   }
@@ -65,19 +71,21 @@ function Calculadora() {
       style={{
         background: "transparent !important",
         backgroundColor: "#1d1d1d",
-        padding: "5px",
+        padding: "0px",
+        paddingBottom: "10px",
         margin: "auto",
         width: "400px",
         border: "2px solid blue",
       }}
     >
-      <Container>
+      <h1 className="title">Calculadora</h1>
 
-        <h1 className="title">Calculadora</h1>
+      <Container>
         <Row>
           <Col xs="3">
-            <Button variant="outline-danger"
-            onClick={limpar}>C</Button>
+            <Button variant="outline-danger" onClick={limpar}>
+              C
+            </Button>
           </Col>
 
           <Col xs="9">
@@ -226,8 +234,9 @@ function Calculadora() {
           </Col>
 
           <Col>
-            <Button variant="outline-success"
-            onClick={acaoCalular}>=</Button>
+            <Button variant="outline-success" onClick={acaoCalular}>
+              =
+            </Button>
           </Col>
 
           <Col>
